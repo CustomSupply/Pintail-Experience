@@ -63,7 +63,7 @@ All in this folder:
 - **Don't stop between phases.** Work through the Software Build Plan continuously until you hit a real blocker (missing key, needing me to apply a migration, an actual ambiguity). Phase boundaries are for planning, not for waiting on permission.
 - **Verify before claiming done.** Run `npm run build` locally before saying a phase is shipped. Vercel build errors from things that would have linted locally are not acceptable.
 - **Destructure Supabase errors.** Never write `const { data } = await supabase...` without `const { data, error }` and explicit error handling. Silent no-ops are a known footgun.
-- **I can't apply Supabase migrations from Claude Code.** Generate migration SQL files in `supabase/migrations/` and flag them at the END of your response so I can run them in Supabase Studio. Don't expect them to apply themselves.
+- **Migrations: apply directly via the Supabase MCP.** The Supabase MCP is connected to this project (ref `phwtjtbzdkgaghjjlpse`), so apply migrations autonomously with `apply_migration` / `execute_sql` — no pasting into Studio. Still write the migration SQL to `supabase/migrations/` for the repo record, and show the SQL in your response so it's visible. After DDL changes, run `get_advisors` to catch missing RLS or exposed functions.
 - **Push back when an ask conflicts with the build plan or v1 scope discipline.** Don't quietly expand scope.
 
 ## v1 scope discipline (what we are NOT building)
