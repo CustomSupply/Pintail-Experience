@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { PageHeader, EmptyState } from "@/components/page-header";
 import { Badge } from "@/components/ui/badge";
@@ -44,8 +45,18 @@ export default async function RosterPage() {
             </thead>
             <tbody>
               {people.map((p) => (
-                <tr key={p.id} className="border-b border-border last:border-0">
-                  <td className="px-4 py-3">{p.full_name ?? "—"}</td>
+                <tr
+                  key={p.id}
+                  className="border-b border-border last:border-0 hover:bg-accent/40"
+                >
+                  <td className="px-4 py-3">
+                    <Link
+                      href={`/admin/roster/${p.id}`}
+                      className="font-medium hover:text-primary"
+                    >
+                      {p.full_name ?? "—"}
+                    </Link>
+                  </td>
                   <td className="px-4 py-3 text-muted-foreground">{p.email}</td>
                   <td className="px-4 py-3">
                     <Badge variant="secondary">{p.role}</Badge>
