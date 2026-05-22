@@ -11,7 +11,7 @@ export default function LoginPage() {
     <main className="relative flex min-h-dvh flex-col items-center justify-center px-6 py-12">
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${stock("duskMountains", 1600, 60)})` }}
+        style={{ backgroundImage: `url(${stock("marshAutumn", 1600, 60)})` }}
       />
       <div className="pointer-events-none absolute inset-0 bg-background/85" />
       <div className="relative w-full max-w-sm">

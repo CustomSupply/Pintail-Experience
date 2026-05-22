@@ -28,7 +28,7 @@ export default async function LandingPage() {
       <section className="relative flex min-h-dvh flex-col items-center justify-center px-6 text-center">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stock("heroFog", 2000, 65)})` }}
+          style={{ backgroundImage: `url(${stock("hunterDawn", 2000, 65)})` }}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pintail-night/85 via-pintail-night/70 to-pintail-night" />
         <div className="relative z-10 max-w-2xl animate-rise">
@@ -69,7 +69,7 @@ export default async function LandingPage() {
       <section className="relative border-t border-border px-6 py-24">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stock("campfire", 1600, 60)})` }}
+          style={{ backgroundImage: `url(${stock("huntersBlind", 1600, 60)})` }}
         />
         <div className="pointer-events-none absolute inset-0 bg-pintail-night/85" />
         <div className="relative mx-auto max-w-2xl text-center">
