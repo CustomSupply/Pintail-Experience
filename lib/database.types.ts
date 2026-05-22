@@ -377,6 +377,47 @@ export type Database = {
           },
         ]
       }
+      trip_pages: {
+        Row: {
+          content: string | null
+          created_at: string
+          id: string
+          slug: string
+          sort_order: number
+          title: string
+          trip_id: string
+          visible: boolean
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          slug: string
+          sort_order?: number
+          title: string
+          trip_id: string
+          visible?: boolean
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          slug?: string
+          sort_order?: number
+          title?: string
+          trip_id?: string
+          visible?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trip_pages_trip_id_fkey"
+            columns: ["trip_id"]
+            isOneToOne: false
+            referencedRelation: "trips"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       trips: {
         Row: {
           brand_film_mux_id: string | null

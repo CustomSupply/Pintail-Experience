@@ -31,6 +31,24 @@ export default async function MorePage() {
           Devotionals
         </Link>
         <Link
+          href="/logistics"
+          className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
+        >
+          Logistics &amp; info
+        </Link>
+        <Link
+          href="/vendors"
+          className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
+        >
+          The people
+        </Link>
+        <Link
+          href="/waiver"
+          className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
+        >
+          Sign the waiver
+        </Link>
+        <Link
           href="/roster"
           className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
         >
