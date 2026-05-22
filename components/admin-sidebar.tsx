@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Users,
+  BookOpen,
+  Sunrise,
   MapPin,
   Megaphone,
   Inbox,
@@ -14,6 +16,8 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/roster", label: "Roster", icon: Users },
+  { href: "/admin/devotionals", label: "Devotionals", icon: Sunrise },
+  { href: "/admin/curriculum", label: "Curriculum", icon: BookOpen },
   { href: "/admin/trips", label: "Trips", icon: MapPin },
   { href: "/admin/broadcast", label: "Broadcast", icon: Megaphone },
   { href: "/admin/inquiries", label: "Inquiries", icon: Inbox },
@@ -30,7 +34,7 @@ export function AdminSidebar() {
       >
         Pintail · Admin
       </Link>
-      <ul className="flex justify-around gap-1 border-b border-border bg-sidebar p-2 md:flex-col md:justify-start md:border-0 md:bg-transparent md:p-0">
+      <ul className="flex justify-around gap-1 overflow-x-auto border-b border-border bg-sidebar p-2 md:flex-col md:justify-start md:overflow-visible md:border-0 md:bg-transparent md:p-0">
         {NAV.map(({ href, label, icon: Icon }) => {
           const active =
             href === "/admin"

@@ -25,6 +25,12 @@ export default async function MorePage() {
 
       <nav className="grid gap-2">
         <Link
+          href="/devotionals"
+          className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
+        >
+          Devotionals
+        </Link>
+        <Link
           href="/roster"
           className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
         >

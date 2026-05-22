@@ -36,6 +36,15 @@ export default async function HomePage() {
     attendee = data;
   }
 
+  const { data: latestDevotional } = await supabase
+    .from("devotionals")
+    .select("id, title, scripture")
+    .not("scheduled_for", "is", null)
+    .lte("scheduled_for", new Date().toISOString())
+    .order("scheduled_for", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
   const profileIncomplete = !user?.full_name || !attendee?.shirt_size;
   const countdown = daysUntil(trip?.start_date ?? null);
   const firstName = user?.full_name?.split(" ")[0];
@@ -93,17 +102,37 @@ export default async function HomePage() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-serif text-lg">What&apos;s next</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">
-            Devotionals, your schedule, and the curriculum library will appear
-            here as the trip draws closer.
-          </p>
-        </CardContent>
-      </Card>
+      {latestDevotional ? (
+        <Link href={`/devotionals/${latestDevotional.id}`}>
+          <Card className="transition-colors hover:border-primary">
+            <CardHeader>
+              <CardTitle className="text-sm font-normal text-primary">
+                Latest devotional
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="font-serif text-xl">{latestDevotional.title}</p>
+              {latestDevotional.scripture && (
+                <p className="mt-1 text-sm italic text-muted-foreground">
+                  {latestDevotional.scripture}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        </Link>
+      ) : (
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-serif text-lg">What&apos;s next</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Devotionals, your schedule, and the curriculum library will appear
+              here as the trip draws closer.
+            </p>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

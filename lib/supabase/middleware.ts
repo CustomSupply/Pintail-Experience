@@ -6,6 +6,7 @@ const PROTECTED_PREFIXES = [
   "/home",
   "/schedule",
   "/curriculum",
+  "/devotionals",
   "/photos",
   "/more",
   "/roster",
