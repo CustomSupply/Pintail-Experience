@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser, isStaff } from "@/lib/auth";
 import { AdminSidebar } from "@/components/admin-sidebar";
 import { Button } from "@/components/ui/button";
+import { PageTransition } from "@/components/page-transition";
 
 export default async function AdminLayout({
   children,
@@ -26,7 +27,9 @@ export default async function AdminLayout({
             </Button>
           </form>
         </header>
-        <main className="mx-auto max-w-5xl px-6 py-8">{children}</main>
+        <main className="mx-auto max-w-5xl px-6 py-8">
+          <PageTransition>{children}</PageTransition>
+        </main>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ export default async function LandingPage() {
       {/* Hero */}
       <section className="relative flex min-h-dvh flex-col items-center justify-center px-6 text-center">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pintail-night via-background to-pintail-night" />
-        <div className="relative z-10 max-w-2xl">
+        <div className="relative z-10 max-w-2xl animate-rise">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">
             A Faith-Based Hunting Retreat
           </p>

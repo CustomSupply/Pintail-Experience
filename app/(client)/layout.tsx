@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
 import { ClientBottomNav } from "@/components/client-bottom-nav";
 import { PintailLockup } from "@/components/pintail-logo";
+import { PageTransition } from "@/components/page-transition";
+import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
 
 export default async function ClientLayout({
   children,
@@ -23,8 +25,9 @@ export default async function ClientLayout({
       </header>
 
       <div className="mx-auto w-full max-w-md flex-1 px-4 pt-5 pb-24">
-        {children}
+        <PageTransition>{children}</PageTransition>
       </div>
+      <PwaInstallPrompt />
       <ClientBottomNav />
     </div>
   );
