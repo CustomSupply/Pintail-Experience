@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
 
 function daysUntil(date: string | null): number | null {
   if (!date) return null;
@@ -12,6 +14,9 @@ export default async function HomePage() {
   const supabase = await createClient();
   const user = await getCurrentUser();
 
+  // Idempotent enrollment so the attendee has a trip row to read.
+  const { data: tripId } = await supabase.rpc("ensure_trip_enrollment");
+
   const { data: trip } = await supabase
     .from("trips")
     .select("name, start_date, location")
@@ -20,6 +25,18 @@ export default async function HomePage() {
     .limit(1)
     .maybeSingle();
 
+  let attendee: { shirt_size: string | null } | null = null;
+  if (tripId) {
+    const { data } = await supabase
+      .from("trip_attendees")
+      .select("shirt_size")
+      .eq("trip_id", tripId)
+      .eq("user_id", user!.id)
+      .maybeSingle();
+    attendee = data;
+  }
+
+  const profileIncomplete = !user?.full_name || !attendee?.shirt_size;
   const countdown = daysUntil(trip?.start_date ?? null);
   const firstName = user?.full_name?.split(" ")[0];
 
@@ -32,15 +49,34 @@ export default async function HomePage() {
         </h1>
       </header>
 
+      {profileIncomplete && (
+        <Card className="border-primary/40">
+          <CardHeader>
+            <CardTitle className="font-serif text-lg">
+              Finish setting up your profile
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Add your sizes, dietary needs, and a short bio so we can take care
+              of you — and introduce you to the other men.
+            </p>
+            <Link href="/onboarding" className={buttonVariants({})}>
+              Complete profile
+            </Link>
+          </CardContent>
+        </Card>
+      )}
+
       <Card>
         <CardHeader>
-          <CardTitle className="font-heading text-xl">
+          <CardTitle className="font-serif text-xl">
             {trip?.name ?? "The Pintail Experience"}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-1">
           {countdown !== null ? (
-            <p className="font-heading text-4xl text-primary">
+            <p className="font-serif text-4xl text-primary">
               {countdown}
               <span className="ml-2 text-base text-muted-foreground">
                 {countdown === 1 ? "day to go" : "days to go"}
@@ -59,7 +95,7 @@ export default async function HomePage() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="font-heading text-lg">What&apos;s next</CardTitle>
+          <CardTitle className="font-serif text-lg">What&apos;s next</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">

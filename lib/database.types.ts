@@ -564,6 +564,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      ensure_trip_enrollment: { Args: never; Returns: string }
+      get_trip_roster: {
+        Args: { p_trip: string }
+        Returns: {
+          avatar_url: string
+          bio: string
+          full_name: string
+          intro_note: string
+          user_id: string
+        }[]
+      }
       has_content_access: { Args: never; Returns: boolean }
       has_staff_access: { Args: never; Returns: boolean }
     }
