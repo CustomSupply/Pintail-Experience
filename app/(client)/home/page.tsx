@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
+import { stock } from "@/lib/stock";
 
 function daysUntil(date: string | null): number | null {
   if (!date) return null;
@@ -77,30 +78,33 @@ export default async function HomePage() {
         </Card>
       )}
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-serif text-xl">
+      <div className="relative overflow-hidden rounded-xl border border-primary/15">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${stock("ridgeSunset", 900, 60)})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-pintail-night via-pintail-night/70 to-pintail-night/30" />
+        <div className="relative p-5 pt-16">
+          <p className="font-serif text-lg text-pintail-cream">
             {trip?.name ?? "The Pintail Experience"}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-1">
+          </p>
           {countdown !== null ? (
-            <p className="font-serif text-4xl text-primary">
+            <p className="font-serif text-5xl text-primary">
               {countdown}
-              <span className="ml-2 text-base text-muted-foreground">
+              <span className="ml-2 text-base text-pintail-cream/80">
                 {countdown === 1 ? "day to go" : "days to go"}
               </span>
             </p>
           ) : (
-            <p className="text-muted-foreground">
+            <p className="text-pintail-cream/80">
               Your trip details are coming soon.
             </p>
           )}
           {trip?.location && (
-            <p className="text-sm text-muted-foreground">{trip.location}</p>
+            <p className="text-sm text-pintail-cream/70">{trip.location}</p>
           )}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {latestDevotional ? (
         <Link href={`/devotionals/${latestDevotional.id}`}>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { InquiryForm } from "./inquiry-form";
 import { buttonVariants } from "@/components/ui/button";
+import { stock } from "@/lib/stock";
 
 function daysUntil(date: string | null): number | null {
   if (!date) return null;
@@ -25,7 +26,11 @@ export default async function LandingPage() {
     <main className="flex flex-col">
       {/* Hero */}
       <section className="relative flex min-h-dvh flex-col items-center justify-center px-6 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pintail-night via-background to-pintail-night" />
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${stock("heroFog", 2000, 65)})` }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pintail-night/85 via-pintail-night/70 to-pintail-night" />
         <div className="relative z-10 max-w-2xl animate-rise">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">
             A Faith-Based Hunting Retreat
@@ -61,8 +66,13 @@ export default async function LandingPage() {
       </section>
 
       {/* Vision */}
-      <section className="border-t border-border bg-card px-6 py-20">
-        <div className="mx-auto max-w-2xl text-center">
+      <section className="relative border-t border-border px-6 py-24">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${stock("campfire", 1600, 60)})` }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-pintail-night/85" />
+        <div className="relative mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl italic tracking-tight">
             The trip lasts three days. The experience lasts forever.
           </h2>

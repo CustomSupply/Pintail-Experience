@@ -2,6 +2,16 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { PageHeader, EmptyState } from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
+import { stock } from "@/lib/stock";
+
+const ROLE_FALLBACK: Record<string, Parameters<typeof stock>[0]> = {
+  lodge: "forestPath",
+  dog_handler: "goldenField",
+  photographer: "duskMountains",
+  leather_goods: "campfire",
+  speaker: "ridgeSunset",
+  other: "starryWater",
+};
 
 const ROLE_LABEL: Record<string, string> = {
   lodge: "Lodge",
@@ -30,14 +40,15 @@ export default async function VendorsPage() {
             <li key={v.id}>
               <Link href={`/vendors/${v.slug}`}>
                 <Card className="overflow-hidden transition-colors hover:border-primary">
-                  {v.featured_photo_url && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={v.featured_photo_url}
-                      alt={v.name}
-                      className="h-32 w-full object-cover"
-                    />
-                  )}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={
+                      v.featured_photo_url ??
+                      stock(ROLE_FALLBACK[v.role] ?? "forestPath", 700, 55)
+                    }
+                    alt={v.name}
+                    className="h-32 w-full object-cover"
+                  />
                   <CardContent className="pt-6">
                     <p className="text-xs uppercase tracking-wide text-primary">
                       {ROLE_LABEL[v.role] ?? "Partner"}
