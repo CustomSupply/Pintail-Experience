@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "A curated, faith-based hunting retreat — in your pocket from confirmation to long after the trip.",
     start_url: "/home",
     display: "standalone",
-    background_color: "#1e1611",
-    theme_color: "#1e1611",
+    background_color: "#1f2421",
+    theme_color: "#1f2421",
     orientation: "portrait",
     icons: [
       {

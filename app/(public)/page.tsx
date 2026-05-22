@@ -25,12 +25,12 @@ export default async function LandingPage() {
     <main className="flex flex-col">
       {/* Hero */}
       <section className="relative flex min-h-dvh flex-col items-center justify-center px-6 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pintail-night via-background to-pintail-night" />
         <div className="relative z-10 max-w-2xl">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">
             A Faith-Based Hunting Retreat
           </p>
-          <h1 className="font-heading text-5xl italic leading-tight tracking-tight sm:text-7xl">
+          <h1 className="font-display text-6xl leading-tight text-pintail-champagne sm:text-8xl">
             The Pintail Experience
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-balance text-lg text-muted-foreground">

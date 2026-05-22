@@ -7,9 +7,22 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-bitter);
+  /* Fonts — Allura (display/hero), Bitter (reading), Inter (functional UI) */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-bitter);
+  --font-display: var(--font-allura);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-fraunces);
+  --font-heading: var(--font-bitter);
+  /* Pintail named palette (utilities: bg-pintail-slate, text-pintail-champagne, …) */
+  --color-pintail-night: #1f2421;
+  --color-pintail-char: #2c332f;
+  --color-pintail-slate: #47524c;
+  --color-pintail-bronze: #8c6a3f;
+  --color-pintail-saddle: #954d2b;
+  --color-pintail-tobacco: #e9b46f;
+  --color-pintail-champagne: #e5c188;
+  --color-pintail-cream: #eee7e0;
+  --color-pintail-ember: #c97a3d;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,76 +61,76 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Pintail brand — warm dark: espresso/leather background, wheat-gold + rust
-   accents, cream text. Hues sampled from pintailgoods.com ("the hues of the
-   game we chase"). Dark by default. */
+/* Pintail brand — dark by default. Slate-green primary surface, char cards,
+   champagne accent, cream text, bronze borders. Palette from the Brand & UI
+   Brief (sampled from pintailgoods.com). */
 :root {
-  --background: oklch(0.185 0.018 58);
-  --foreground: oklch(0.93 0.012 80);
-  --card: oklch(0.235 0.02 56);
-  --card-foreground: oklch(0.93 0.012 80);
-  --popover: oklch(0.235 0.02 56);
-  --popover-foreground: oklch(0.93 0.012 80);
-  --primary: oklch(0.79 0.1 78);
-  --primary-foreground: oklch(0.2 0.025 56);
-  --secondary: oklch(0.28 0.022 56);
-  --secondary-foreground: oklch(0.93 0.012 80);
-  --muted: oklch(0.28 0.02 56);
-  --muted-foreground: oklch(0.72 0.022 72);
-  --accent: oklch(0.33 0.035 52);
-  --accent-foreground: oklch(0.93 0.012 80);
-  --destructive: oklch(0.62 0.2 25);
-  --border: oklch(0.93 0.012 80 / 12%);
-  --input: oklch(0.93 0.012 80 / 15%);
-  --ring: oklch(0.79 0.1 78);
-  --chart-1: oklch(0.79 0.1 78);
-  --chart-2: oklch(0.63 0.135 45);
-  --chart-3: oklch(0.5 0.1 46);
-  --chart-4: oklch(0.46 0.025 160);
-  --chart-5: oklch(0.72 0.022 72);
+  --background: #47524c; /* Pintail Slate */
+  --foreground: #eee7e0; /* Pintail Cream */
+  --card: #2c332f; /* Pintail Char */
+  --card-foreground: #eee7e0;
+  --popover: #2c332f;
+  --popover-foreground: #eee7e0;
+  --primary: #e5c188; /* Pintail Champagne */
+  --primary-foreground: #1f2421; /* Pintail Night */
+  --secondary: #2c332f;
+  --secondary-foreground: #eee7e0;
+  --muted: #3c463f;
+  --muted-foreground: #c9bca8;
+  --accent: #56625b;
+  --accent-foreground: #eee7e0;
+  --destructive: #b23a2e;
+  --border: #8c6a3f59; /* Pintail Bronze ~35% */
+  --input: #8c6a3f66;
+  --ring: #e5c188;
+  --chart-1: #e5c188; /* champagne */
+  --chart-2: #e9b46f; /* tobacco */
+  --chart-3: #954d2b; /* saddle */
+  --chart-4: #8c6a3f; /* bronze */
+  --chart-5: #eee7e0; /* cream */
   --radius: 0.625rem;
-  --sidebar: oklch(0.21 0.02 57);
-  --sidebar-foreground: oklch(0.93 0.012 80);
-  --sidebar-primary: oklch(0.79 0.1 78);
-  --sidebar-primary-foreground: oklch(0.2 0.025 56);
-  --sidebar-accent: oklch(0.28 0.022 56);
-  --sidebar-accent-foreground: oklch(0.93 0.012 80);
-  --sidebar-border: oklch(0.93 0.012 80 / 12%);
-  --sidebar-ring: oklch(0.79 0.1 78);
+  --sidebar: #2c332f; /* char */
+  --sidebar-foreground: #eee7e0;
+  --sidebar-primary: #e5c188;
+  --sidebar-primary-foreground: #1f2421;
+  --sidebar-accent: #3c463f;
+  --sidebar-accent-foreground: #eee7e0;
+  --sidebar-border: #8c6a3f59;
+  --sidebar-ring: #e5c188;
 }
 
 .dark {
-  --background: oklch(0.185 0.018 58);
-  --foreground: oklch(0.93 0.012 80);
-  --card: oklch(0.235 0.02 56);
-  --card-foreground: oklch(0.93 0.012 80);
-  --popover: oklch(0.235 0.02 56);
-  --popover-foreground: oklch(0.93 0.012 80);
-  --primary: oklch(0.79 0.1 78);
-  --primary-foreground: oklch(0.2 0.025 56);
-  --secondary: oklch(0.28 0.022 56);
-  --secondary-foreground: oklch(0.93 0.012 80);
-  --muted: oklch(0.28 0.02 56);
-  --muted-foreground: oklch(0.72 0.022 72);
-  --accent: oklch(0.33 0.035 52);
-  --accent-foreground: oklch(0.93 0.012 80);
-  --destructive: oklch(0.62 0.2 25);
-  --border: oklch(0.93 0.012 80 / 12%);
-  --input: oklch(0.93 0.012 80 / 15%);
-  --ring: oklch(0.79 0.1 78);
-  --chart-1: oklch(0.79 0.1 78);
-  --chart-2: oklch(0.63 0.135 45);
-  --chart-3: oklch(0.5 0.1 46);
-  --chart-4: oklch(0.46 0.025 160);
-  --chart-5: oklch(0.72 0.022 72);
-  --sidebar: oklch(0.21 0.02 57);
-  --sidebar-foreground: oklch(0.93 0.012 80);
-  --sidebar-primary: oklch(0.79 0.1 78);
-  --sidebar-primary-foreground: oklch(0.2 0.025 56);
-  --sidebar-accent: oklch(0.28 0.022 56);
-  --sidebar-accent-foreground: oklch(0.93 0.012 80);
-  --sidebar-border: oklch(0.93 0.012 80 / 12%);
-  --sidebar-ring: oklch(0.79 0.1 78);
+  --background: #47524c;
+  --foreground: #eee7e0;
+  --card: #2c332f;
+  --card-foreground: #eee7e0;
+  --popover: #2c332f;
+  --popover-foreground: #eee7e0;
+  --primary: #e5c188;
+  --primary-foreground: #1f2421;
+  --secondary: #2c332f;
+  --secondary-foreground: #eee7e0;
+  --muted: #3c463f;
+  --muted-foreground: #c9bca8;
+  --accent: #56625b;
+  --accent-foreground: #eee7e0;
+  --destructive: #b23a2e;
+  --border: #8c6a3f59;
+  --input: #8c6a3f66;
+  --ring: #e5c188;
+  --chart-1: #e5c188;
+  --chart-2: #e9b46f;
+  --chart-3: #954d2b;
+  --chart-4: #8c6a3f;
+  --chart-5: #eee7e0;
+  --sidebar: #2c332f;
+  --sidebar-foreground: #eee7e0;
+  --sidebar-primary: #e5c188;
+  --sidebar-primary-foreground: #1f2421;
+  --sidebar-accent: #3c463f;
+  --sidebar-accent-foreground: #eee7e0;
+  --sidebar-border: #8c6a3f59;
+  --sidebar-ring: #e5c188;
 }
 
 @layer base {
@@ -125,9 +138,19 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Reading default: Bitter (slab serif) */
+    @apply bg-background text-foreground font-serif;
   }
-  html {
-    @apply font-sans;
+  /* Functional UI scans in Inter — buttons, forms, nav, tables, badges */
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  table,
+  nav,
+  [data-slot="button"],
+  [data-slot="badge"] {
+    font-family: var(--font-sans);
   }
 }

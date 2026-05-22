@@ -1,17 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Bitter, Geist_Mono } from "next/font/google";
+import { Allura, Bitter, Inter, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
+// Display / hero / wordmark — flowing script (closest free match to Lakeside).
+const allura = Allura({
+  variable: "--font-allura",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+// Reading — slab serif, matches pintailgoods.com body.
 const bitter = Bitter({
   variable: "--font-bitter",
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Functional UI — tables, forms, small labels.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT", "WONK"],
 });
 
 const geistMono = Geist_Mono({
@@ -32,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e1611",
+  themeColor: "#1f2421",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -47,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${bitter.variable} ${fraunces.variable} ${geistMono.variable} h-full antialiased`}
+      className={`dark ${allura.variable} ${bitter.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}

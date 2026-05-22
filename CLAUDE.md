@@ -45,16 +45,18 @@ Shared across all three: database schema, auth, brand tokens. Diverged: layouts,
 All in this folder:
 
 - `Pintail Experience — Software Build Plan.md` — **the canonical software roadmap.** When in doubt about scope, design, or data model, this is the answer.
+- `Pintail Experience — Brand & UI Brief.md` — **the canonical brand reference.** Color palette, typography, voice, imagery, component conventions. Read this before setting any design tokens.
 - `Pintail Experience — Action Plan.md` — the trip game plan (non-software).
 - `Pintail Experience — Background Brief.md` — the original vision.
 - `Pintail Experience — Deep-Dive Research.md` — market research and competitive analysis. Useful context, not load-bearing for build decisions.
 
-## Brand direction
+## Brand direction (summary — full detail in the Brand & UI Brief)
 
-- **Feel:** Yeti meets Garden & Gun meets a leather-bound seminary book.
-- **Color baseline:** dark mode default — deep charcoal/plum, candle-lit, masculine. Champagne or burnished-gold accents.
-- **Typography:** serif headers (Fraunces or similar editorial face, italic for display sizes). Clean sans body (Inter).
-- **Photography target:** dawn duck blinds with fog, dogs working, fire-lit teaching moments, hands holding birds, fathers with sons. Faces matter more than birds.
+- **Feel:** Pintail Goods grown up — same DNA (heirloom craftsmanship, reverence, intentionality), scaled to a premium retreat brand. Garden & Gun aesthetic, leather-bound seminary book seriousness.
+- **Color baseline:** dark mode default. Primary surface is **Pintail Slate `#47524C`** (pulled from pintailgoods.com about page). Accents in **champagne `#E5C188`** and **cream `#EEE7E0`**. Deeper night tones (`#1F2421`, `#2C332F`) for UI cards.
+- **Typography:** **Allura** (script, closest free match to Squarespace's "Lakeside") for wordmark + hero display; **Bitter** (slab serif) for body and reading; **Inter** for functional UI (tables, forms, small text).
+- **Photography target:** dawn duck blinds with fog, dogs working, fire-lit teaching moments, hands holding birds, fathers with sons. Faces matter more than birds. If it would look at home in a Garden & Gun feature, it's right.
+- **Voice:** reverent, intentional, declarative. "For the inspired sportsman." Short. Confident. Quiet authority. See the Brand & UI Brief for the words-to-use / words-to-avoid lists.
 
 ## Working conventions for this project
 

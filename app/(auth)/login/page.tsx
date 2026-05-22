@@ -10,7 +10,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <Link
           href="/"
-          className="block text-center font-heading text-2xl tracking-tight text-primary"
+          className="block text-center font-display text-4xl leading-tight text-pintail-champagne"
         >
           The Pintail Experience
         </Link>
