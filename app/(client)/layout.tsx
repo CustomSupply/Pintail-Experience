@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
 import { ClientBottomNav } from "@/components/client-bottom-nav";
+import { PintailLockup } from "@/components/pintail-logo";
 
 export default async function ClientLayout({
   children,
@@ -12,7 +14,15 @@ export default async function ClientLayout({
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <div className="mx-auto w-full max-w-md flex-1 px-4 pt-6 pb-24">
+      <header className="sticky top-0 z-40 border-b border-primary/15 bg-background/90 pt-[env(safe-area-inset-top)] backdrop-blur supports-[backdrop-filter]:bg-background/70">
+        <div className="mx-auto flex max-w-md items-center justify-center px-4 py-3">
+          <Link href="/home" aria-label="The Pintail Experience home">
+            <PintailLockup wordmarkClassName="text-[1.7rem]" />
+          </Link>
+        </div>
+      </header>
+
+      <div className="mx-auto w-full max-w-md flex-1 px-4 pt-5 pb-24">
         {children}
       </div>
       <ClientBottomNav />

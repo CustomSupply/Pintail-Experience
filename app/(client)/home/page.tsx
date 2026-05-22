@@ -53,7 +53,7 @@ export default async function HomePage() {
     <div className="space-y-6">
       <header>
         <p className="text-sm text-muted-foreground">Welcome back</p>
-        <h1 className="font-display text-5xl leading-tight text-pintail-champagne">
+        <h1 className="font-display text-5xl leading-tight text-foreground">
           {firstName ?? "Friend"}
         </h1>
       </header>
