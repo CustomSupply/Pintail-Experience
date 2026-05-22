@@ -1,6 +1,10 @@
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/lib/database.types";
 
+export function serviceRoleConfigured(): boolean {
+  return Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
+}
+
 /**
  * Service-role client — bypasses RLS. Server-only. Use ONLY for trusted
  * cross-actor writes (e.g. seeding the roster, sending broadcasts). Never

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { PageHeader, EmptyState } from "@/components/page-header";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function RosterPage() {
   const supabase = await createClient();
@@ -21,12 +22,20 @@ export default async function RosterPage() {
 
   return (
     <div>
-      <PageHeader
-        title="Roster"
-        subtitle={`${people?.length ?? 0} ${
-          (people?.length ?? 0) === 1 ? "person" : "people"
-        } in the system.`}
-      />
+      <div className="flex items-end justify-between gap-4">
+        <PageHeader
+          title="Roster"
+          subtitle={`${people?.length ?? 0} ${
+            (people?.length ?? 0) === 1 ? "person" : "people"
+          } in the system.`}
+        />
+        <Link
+          href="/admin/invite"
+          className={buttonVariants({ className: "mb-6" })}
+        >
+          Invite attendees
+        </Link>
+      </div>
 
       {!people || people.length === 0 ? (
         <EmptyState>

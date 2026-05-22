@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   Users,
   MapPin,
+  Megaphone,
   Inbox,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,7 @@ const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/roster", label: "Roster", icon: Users },
   { href: "/admin/trips", label: "Trips", icon: MapPin },
+  { href: "/admin/broadcast", label: "Broadcast", icon: Megaphone },
   { href: "/admin/inquiries", label: "Inquiries", icon: Inbox },
 ];
 
