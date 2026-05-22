@@ -120,7 +120,10 @@ export default async function LandingPage() {
       </section>
 
       <footer className="border-t border-border px-6 py-10 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} The Pintail Experience.
+        <Link href="/gallery" className="text-primary underline underline-offset-2">
+          View the gallery
+        </Link>
+        <p className="mt-3">© {new Date().getFullYear()} The Pintail Experience.</p>
       </footer>
     </main>
   );
