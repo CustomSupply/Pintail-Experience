@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, Geist_Mono } from "next/font/google";
+import { Fraunces, Bitter, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const bitter = Bitter({
+  variable: "--font-bitter",
   subsets: ["latin"],
 });
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1a1620",
+  themeColor: "#1e1611",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${fraunces.variable} ${geistMono.variable} h-full antialiased`}
+      className={`dark ${bitter.variable} ${fraunces.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
