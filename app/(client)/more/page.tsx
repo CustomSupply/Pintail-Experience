@@ -19,9 +19,6 @@ export default async function MorePage() {
                 {user.full_name ?? "Your profile"}
               </p>
               <p className="text-sm text-muted-foreground">{user.email}</p>
-              <p className="text-xs uppercase tracking-wide text-primary">
-                {user.role}
-              </p>
             </>
           ) : (
             <>
