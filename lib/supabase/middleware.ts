@@ -2,21 +2,10 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import type { Database } from "@/lib/database.types";
 
-const PROTECTED_PREFIXES = [
-  "/home",
-  "/schedule",
-  "/curriculum",
-  "/devotionals",
-  "/photos",
-  "/vendors",
-  "/logistics",
-  "/schedule",
-  "/waiver",
-  "/more",
-  "/roster",
-  "/admin",
-  "/onboarding",
-];
+// Build-phase preview: the attendee surface is open to guests (no login) so
+// the app can be shared by link. Only actions that need an account stay gated.
+// Re-lock the attendee routes before loading real attendees.
+const PROTECTED_PREFIXES = ["/admin", "/onboarding", "/waiver"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });

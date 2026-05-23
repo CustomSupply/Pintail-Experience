@@ -1,20 +1,17 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
-import { getCurrentUser } from "@/lib/auth";
 import { ClientBottomNav } from "@/components/client-bottom-nav";
 import { PintailLockup } from "@/components/pintail-logo";
 import { PageTransition } from "@/components/page-transition";
 import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
 import { stock } from "@/lib/stock";
 
+// Open to guests during the build phase (no login) so the app can be shared
+// by link. Pages handle the no-user case gracefully.
 export default async function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
-
   return (
     <div className="flex min-h-dvh flex-col">
       <div

@@ -15,9 +15,6 @@ export default async function HomePage() {
   const supabase = await createClient();
   const user = await getCurrentUser();
 
-  // Idempotent enrollment so the attendee has a trip row to read.
-  const { data: tripId } = await supabase.rpc("ensure_trip_enrollment");
-
   const { data: trip } = await supabase
     .from("trips")
     .select("name, start_date, location")
@@ -26,15 +23,20 @@ export default async function HomePage() {
     .limit(1)
     .maybeSingle();
 
+  // Signed-in attendees get enrolled + a profile-completeness check.
+  // Guests (preview) skip all of this.
   let attendee: { shirt_size: string | null } | null = null;
-  if (tripId) {
-    const { data } = await supabase
-      .from("trip_attendees")
-      .select("shirt_size")
-      .eq("trip_id", tripId)
-      .eq("user_id", user!.id)
-      .maybeSingle();
-    attendee = data;
+  if (user) {
+    const { data: tripId } = await supabase.rpc("ensure_trip_enrollment");
+    if (tripId) {
+      const { data } = await supabase
+        .from("trip_attendees")
+        .select("shirt_size")
+        .eq("trip_id", tripId)
+        .eq("user_id", user.id)
+        .maybeSingle();
+      attendee = data;
+    }
   }
 
   const { data: latestDevotional } = await supabase
@@ -46,7 +48,7 @@ export default async function HomePage() {
     .limit(1)
     .maybeSingle();
 
-  const profileIncomplete = !user?.full_name || !attendee?.shirt_size;
+  const profileIncomplete = Boolean(user) && (!user?.full_name || !attendee?.shirt_size);
   const countdown = daysUntil(trip?.start_date ?? null);
   const firstName = user?.full_name?.split(" ")[0];
 
