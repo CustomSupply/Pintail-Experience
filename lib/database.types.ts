@@ -631,7 +631,7 @@ export type Database = {
         | "travel"
         | "special"
       trip_status: "draft" | "live" | "past"
-      user_role: "attendee" | "founder" | "father_in_law" | "vendor" | "admin"
+      user_role: "attendee" | "staff" | "founder" | "admin"
       vendor_role:
         | "lodge"
         | "dog_handler"
@@ -778,7 +778,7 @@ export const Constants = {
         "special",
       ],
       trip_status: ["draft", "live", "past"],
-      user_role: ["attendee", "founder", "father_in_law", "vendor", "admin"],
+      user_role: ["attendee", "staff", "founder", "admin"],
       vendor_role: [
         "lodge",
         "dog_handler",

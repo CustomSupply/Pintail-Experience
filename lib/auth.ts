@@ -25,7 +25,7 @@ export async function getCurrentUser(): Promise<AppUser | null> {
   return data;
 }
 
-const STAFF_ROLES: UserRole[] = ["founder", "father_in_law", "admin"];
+const STAFF_ROLES: UserRole[] = ["founder", "admin", "staff"];
 
 export function isStaff(role: UserRole | undefined | null): boolean {
   return role ? STAFF_ROLES.includes(role) : false;
