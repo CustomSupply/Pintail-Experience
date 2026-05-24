@@ -4,6 +4,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { stock } from "@/lib/stock";
+import { VideoBackground } from "@/components/video-background";
 
 function daysUntil(date: string | null): number | null {
   if (!date) return null;
@@ -81,10 +82,7 @@ export default async function HomePage() {
       )}
 
       <div className="relative overflow-hidden rounded-xl border border-primary/15">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stock("goldenPortrait")})` }}
-        />
+        <VideoBackground src="/video/hero-1.mp4" poster="/img/hero-1-poster.jpg" />
         <div className="absolute inset-0 bg-gradient-to-t from-pintail-night via-pintail-night/70 to-pintail-night/30" />
         <div className="relative p-5 pt-16">
           <p className="font-serif text-lg text-pintail-cream">
