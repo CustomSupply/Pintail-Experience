@@ -83,7 +83,7 @@ export default async function HomePage() {
       <div className="relative overflow-hidden rounded-xl border border-primary/15">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stock("tidalSunset", 900, 60)})` }}
+          style={{ backgroundImage: `url(${stock("goldenPortrait")})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-pintail-night via-pintail-night/70 to-pintail-night/30" />
         <div className="relative p-5 pt-16">

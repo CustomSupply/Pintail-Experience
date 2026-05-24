@@ -45,3 +45,10 @@ supabase/.temp
 
 # OS
 Thumbs.db
+
+# Source media originals (kept locally; optimized web copies live in /public)
+/Brand Assets/
+/Photos/
+/Videos/
+*.CR3
+pandoc-err.log

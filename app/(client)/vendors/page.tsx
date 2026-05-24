@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { stock } from "@/lib/stock";
 
 const ROLE_FALLBACK: Record<string, Parameters<typeof stock>[0]> = {
-  lodge: "marshLowcountry",
-  dog_handler: "retrieverWater",
-  photographer: "marshMono",
-  leather_goods: "huntersBlind",
-  speaker: "marshAutumn",
-  other: "mallardDrake",
+  lodge: "decoySpread",
+  dog_handler: "boatHunter",
+  photographer: "featherDetail",
+  leather_goods: "leatherMark",
+  speaker: "lodgeFire",
+  other: "capPortrait",
 };
 
 const ROLE_LABEL: Record<string, string> = {
@@ -44,7 +44,7 @@ export default async function VendorsPage() {
                   <img
                     src={
                       v.featured_photo_url ??
-                      stock(ROLE_FALLBACK[v.role] ?? "marshLowcountry", 700, 55)
+                      stock(ROLE_FALLBACK[v.role] ?? "decoySpread")
                     }
                     alt={v.name}
                     className="h-32 w-full object-cover"

@@ -1,22 +1,22 @@
-// Curated, visually-vetted duck-hunting placeholder photography (Unsplash,
-// free to use). Each ID was downloaded and eyeballed — mallards, low-country
-// marsh, hunters in the blind, a working retriever. Swap for real trip
-// photography later. Plain <img>/CSS URLs, so no remote config needed.
+// Real trip photography (founder-provided, converted from RAW into
+// /public/img). Replaces the earlier Unsplash placeholders. The optional
+// width/quality args are ignored now that these are local, fixed-size files —
+// kept so existing call sites compile unchanged.
 
 const PHOTO = {
-  hunterDawn: "1548171971-b56560f9a7bb", // hunter + dogs silhouette at sunrise
-  huntersBlind: "1481140717212-b0124736c90a", // two hunters in the brush at dusk
-  marshLowcountry: "1566818421132-700d4b3ceeb7", // marsh grass + water + big sky
-  marshAutumn: "1633295686973-6ce4b697ebab", // autumn wetland pond, reeds
-  marshMono: "1687833343134-1e1a8e7b6184", // black-and-white marsh, lone tree
-  tidalSunset: "1568522979297-104bfdf5ae4e", // tidal flats at golden sunset
-  mallardDrake: "1594270844773-a7d264a62285", // mallard drake at the water's edge
-  mallardHen: "1598168373100-237b409b1b74", // mallard hen by the reeds
-  retrieverWater: "1520179942687-0d7dc321a7ff", // wet retriever working a river
+  marshDawn: "marsh-dawn", // wide dawn marsh, hunter wading among decoys
+  lodgeFire: "lodge-fire", // night cook at the lodge, warm glow
+  decoySpread: "decoy-spread", // hunter in the boat over a decoy spread
+  leatherMark: "leather-mark", // embossed Pintail leather bag
+  featherDetail: "feather-detail", // macro of duck feathers
+  goldenPortrait: "golden-portrait", // golden-hour portrait, Pintail cap
+  capPortrait: "cap-portrait", // portrait in a Pintail patch cap
+  thermosHands: "thermos-hands", // hands pouring a thermos in the blind
+  boatHunter: "boat-hunter", // hunter in the boat, flooded field
 } as const;
 
 export type StockKey = keyof typeof PHOTO;
 
-export function stock(key: StockKey, w = 1200, q = 60): string {
-  return `https://images.unsplash.com/photo-${PHOTO[key]}?auto=format&fit=crop&w=${w}&q=${q}`;
+export function stock(key: StockKey, _w?: number, _q?: number): string {
+  return `/img/${PHOTO[key]}.jpg`;
 }

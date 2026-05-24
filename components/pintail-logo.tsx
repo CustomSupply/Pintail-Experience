@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** A pintail in flight — the brand mark. Uses currentColor so it inherits text color. */
+/** A pintail in flight — small inline mark (used where the wordmark is too wide). */
 export function PintailMark({ className }: { className?: string }) {
   return (
     <svg
@@ -14,20 +14,30 @@ export function PintailMark({ className }: { className?: string }) {
   );
 }
 
-/** Mark + Allura wordmark lockup, in champagne. */
+/** The real Pintail wordmark (champagne script) with an "Experience" caption. */
 export function PintailLockup({
   className,
-  wordmarkClassName = "text-2xl",
+  height = 30,
+  caption = true,
 }: {
   className?: string;
-  wordmarkClassName?: string;
+  height?: number;
+  caption?: boolean;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2 text-pintail-champagne", className)}>
-      <PintailMark className="h-4 w-auto" />
-      <span className={cn("font-display leading-none", wordmarkClassName)}>
-        The Pintail Experience
-      </span>
+    <span className={cn("inline-flex flex-col items-center", className)}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/wordmark.png"
+        alt="The Pintail Experience"
+        style={{ height }}
+        className="w-auto"
+      />
+      {caption && (
+        <span className="mt-1 text-[0.6rem] uppercase tracking-[0.4em] text-pintail-champagne/80">
+          The Experience
+        </span>
+      )}
     </span>
   );
 }

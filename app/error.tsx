@@ -17,7 +17,7 @@ export default function Error({
 
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center gap-6 px-6 text-center">
-      <PintailLockup wordmarkClassName="text-3xl" />
+      <PintailLockup height={42} />
       <div>
         <h1 className="font-serif text-2xl">Something went sideways</h1>
         <p className="mt-2 text-sm text-muted-foreground">

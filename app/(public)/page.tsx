@@ -28,18 +28,26 @@ export default async function LandingPage() {
       <section className="relative flex min-h-dvh flex-col items-center justify-center px-6 text-center">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stock("hunterDawn", 2000, 65)})` }}
+          style={{ backgroundImage: `url(${stock("marshDawn")})` }}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pintail-night/85 via-pintail-night/70 to-pintail-night" />
         <div className="relative z-10 max-w-2xl animate-rise">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">
             A Faith-Based Hunting Retreat
           </p>
-          <h1 className="font-display text-6xl leading-tight text-pintail-champagne sm:text-8xl">
-            The Pintail Experience
+          <h1>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/wordmark.png"
+              alt="The Pintail Experience"
+              className="mx-auto h-24 w-auto sm:h-32"
+            />
+            <span className="mt-3 block text-sm uppercase tracking-[0.4em] text-pintail-champagne/80">
+              The Experience
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-balance text-lg text-muted-foreground">
-            Three days in the blind. A lifetime of brotherhood. A curated,
+            Three days in the blind. A lifetime of brotherhood. A
             faith-centered hunting retreat for men who want more than a trophy.
           </p>
 
@@ -69,7 +77,7 @@ export default async function LandingPage() {
       <section className="relative border-t border-border px-6 py-24">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stock("huntersBlind", 1600, 60)})` }}
+          style={{ backgroundImage: `url(${stock("lodgeFire")})` }}
         />
         <div className="pointer-events-none absolute inset-0 bg-pintail-night/85" />
         <div className="relative mx-auto max-w-2xl text-center">

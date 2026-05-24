@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { PhotoGallery } from "@/app/(client)/photos/photo-gallery";
 import { buttonVariants } from "@/components/ui/button";
+import { PintailLockup } from "@/components/pintail-logo";
 
 export const metadata = {
   title: "Gallery · The Pintail Experience",
@@ -18,11 +19,8 @@ export default async function PublicGalleryPage() {
   return (
     <main className="mx-auto max-w-5xl px-5 py-12">
       <header className="mb-8 text-center">
-        <Link
-          href="/"
-          className="font-display text-4xl text-pintail-champagne"
-        >
-          The Pintail Experience
+        <Link href="/" className="inline-block">
+          <PintailLockup height={44} />
         </Link>
         <p className="mt-3 text-sm text-muted-foreground">
           Moments from the field.

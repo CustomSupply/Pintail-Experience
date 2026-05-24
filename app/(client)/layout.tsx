@@ -16,12 +16,12 @@ export default async function ClientLayout({
     <div className="flex min-h-dvh flex-col">
       <div
         className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center opacity-[0.05]"
-        style={{ backgroundImage: `url(${stock("marshMono", 1200, 50)})` }}
+        style={{ backgroundImage: `url(${stock("featherDetail")})` }}
       />
       <header className="sticky top-0 z-40 border-b border-primary/15 bg-background/90 pt-[env(safe-area-inset-top)] backdrop-blur supports-[backdrop-filter]:bg-background/70">
         <div className="mx-auto flex max-w-md items-center justify-center px-4 py-3">
           <Link href="/home" aria-label="The Pintail Experience home">
-            <PintailLockup wordmarkClassName="text-[1.7rem]" />
+            <PintailLockup height={26} caption={false} />
           </Link>
         </div>
       </header>
