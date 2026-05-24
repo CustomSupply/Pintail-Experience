@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Eye } from "lucide-react";
 import { getCurrentUser, isStaff } from "@/lib/auth";
 import { AdminSidebar } from "@/components/admin-sidebar";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { PageTransition } from "@/components/page-transition";
 
 export default async function AdminLayout({
@@ -18,14 +20,23 @@ export default async function AdminLayout({
       <AdminSidebar />
       <div className="flex-1">
         <header className="flex items-center justify-between border-b border-border px-6 py-3">
-          <span className="text-sm text-muted-foreground">
+          <span className="hidden text-sm text-muted-foreground sm:inline">
             {user.full_name ?? user.email}
           </span>
-          <form action="/auth/signout" method="post">
-            <Button type="submit" variant="ghost" size="sm">
-              Sign out
-            </Button>
-          </form>
+          <div className="flex items-center gap-1">
+            <Link
+              href="/home"
+              className={buttonVariants({ variant: "outline", size: "sm" })}
+            >
+              <Eye className="size-4" />
+              Attendee view
+            </Link>
+            <form action="/auth/signout" method="post">
+              <Button type="submit" variant="ghost" size="sm">
+                Sign out
+              </Button>
+            </form>
+          </div>
         </header>
         <main className="mx-auto max-w-5xl px-6 py-8">
           <PageTransition>{children}</PageTransition>
