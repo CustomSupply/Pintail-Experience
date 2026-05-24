@@ -3,6 +3,7 @@ import { getCurrentUser, isStaff } from "@/lib/auth";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { AdminLink } from "./admin-link";
 
 export default async function MorePage() {
   const user = await getCurrentUser();
@@ -73,14 +74,7 @@ export default async function MorePage() {
             </Link>
           </>
         )}
-        {isStaff(user?.role) && (
-          <Link
-            href="/admin"
-            className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
-          >
-            Open admin control room
-          </Link>
-        )}
+        <AdminLink staff={isStaff(user?.role)} />
       </nav>
 
       {user ? (
