@@ -53,7 +53,7 @@ export default async function TripOnePager() {
 
   const { data: trip } = await supabase
     .from("trips")
-    .select("name, start_date, end_date, location, description")
+    .select("name, start_date, end_date, location")
     .neq("status", "draft")
     .order("start_date", { ascending: true })
     .limit(1)
@@ -139,11 +139,10 @@ export default async function TripOnePager() {
       )}
 
       {/* The Details */}
-      {(trip?.description || included?.content) && (
+      {included?.content && (
         <section>
           <h2 className="mb-2 font-serif text-2xl text-primary">The Details</h2>
-          {trip?.description && <Markdown>{trip.description}</Markdown>}
-          {included?.content && <Markdown>{included.content}</Markdown>}
+          <Markdown>{included.content}</Markdown>
         </section>
       )}
 
