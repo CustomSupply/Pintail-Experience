@@ -27,7 +27,7 @@ export default async function VendorDetailPage({
         href="/vendors"
         className="text-sm text-muted-foreground hover:text-foreground"
       >
-        ← The people
+        ← The Hosting Team
       </Link>
 
       {vendor.featured_photo_url && (

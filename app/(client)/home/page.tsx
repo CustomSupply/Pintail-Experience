@@ -81,7 +81,10 @@ export default async function HomePage() {
         </Card>
       )}
 
-      <div className="relative overflow-hidden rounded-xl border border-primary/15">
+      <Link
+        href="/trip"
+        className="group relative block overflow-hidden rounded-xl border border-primary/15 transition-colors hover:border-primary/40"
+      >
         <VideoBackground src="/video/hero-1.mp4" poster="/img/hero-1-poster.jpg" />
         <div className="absolute inset-0 bg-gradient-to-t from-pintail-night via-pintail-night/70 to-pintail-night/30" />
         <div className="relative p-5 pt-16">
@@ -103,8 +106,11 @@ export default async function HomePage() {
           {trip?.location && (
             <p className="text-sm text-pintail-cream/70">{trip.location}</p>
           )}
+          <p className="mt-3 text-xs uppercase tracking-wide text-primary/80 transition-colors group-hover:text-primary">
+            Tap to explore the trip →
+          </p>
         </div>
-      </div>
+      </Link>
 
       {latestDevotional ? (
         <Link href={`/devotionals/${latestDevotional.id}`}>

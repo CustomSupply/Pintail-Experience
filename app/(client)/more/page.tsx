@@ -50,7 +50,7 @@ export default async function MorePage() {
           href="/vendors"
           className={buttonVariants({ variant: "outline", className: "w-full justify-start" })}
         >
-          The people
+          The Hosting Team
         </Link>
         <Link
           href="/roster"

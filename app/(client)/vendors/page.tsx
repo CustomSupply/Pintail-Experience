@@ -31,7 +31,7 @@ export default async function VendorsPage() {
 
   return (
     <div>
-      <PageHeader title="The people" subtitle="Who you'll meet on the trip." />
+      <PageHeader title="The Hosting Team" subtitle="Who you'll meet on the trip." />
       {!vendors || vendors.length === 0 ? (
         <EmptyState>Vendor profiles are on the way.</EmptyState>
       ) : (
